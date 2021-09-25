@@ -1,3 +1,5 @@
+from typing import List
+
 import pdfquery
 from pdfquery.cache import FileCache
 
@@ -23,6 +25,25 @@ class NotSmallBusiness:
         self.beginning_reporting_period_previous_year = self.pdf.pq(
             f'LTTextBoxHorizontal:overlaps_bbox("543.713, 656.118, 571.245, 300")'
         )[0]
+
+    def get_base(self) -> List[dict]:
+        data = []
+        for i in range(len(self.title)):
+            data.append(
+                {
+                    'Название': self.title[i],
+                    'Отчетный месяц': self.reporting_month[i],
+                    'Период с начала отчетного года': self.period_from_beginning_reporting_year[i],
+                    'Темпы роста (снижения), в % отчетного месяца к предыдущему месяцу':
+                        self.last_moth[i],
+                    'Темпы роста (снижения), в % отчетного месяца соответствующему месяцу предыдущего года':
+                        self.last_year[i],
+                    'Темпы роста (снижения), в % '
+                    'периода с начала отчетного года к соответствующему периоду предыдущего года':
+                        self.beginning_reporting_period_previous_year[i]
+                }
+            )
+        return data
 
     def print(self):
         for i in range(len(self.title)):
