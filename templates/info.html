@@ -42,62 +42,123 @@
 				</script>
 			</div>
 			<!-- Диаграмма -->
-			<script>
-                $(document).ready(function () {
-                    var ctx = $("#chart-dia");
-                    var myLineChart = new Chart(ctx, {
-                        type: 'polarArea',
-                        data: {
-                            labels: ["Spring", "Summer", "Fall", "Winter"],
-                            datasets: [{
-                                data: [1200, 1700, 800, 200],
-                                backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)", "rgba(200, 50, 255, 0.5)", "rgba(0, 100, 255, 0.5)"]
-                            }]
-                        },
-                        options: {
-                            title: {
-                                display: true,
-                                text: 'Weather'
+			<div class="mt-5">
+				<script>
+                    $(document).ready(function () {
+                        var ctx = $("#chart-dia");
+                        var myLineChart = new Chart(ctx, {
+                            type: 'polarArea',
+                            data: {
+                                labels: ["Spring", "Summer", "Fall", "Winter"],
+                                datasets: [{
+                                    data: [1200, 1700, 800, 400],
+                                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)", "rgba(200, 50, 255, 0.5)", "rgba(0, 100, 255, 0.5)"]
+                                }]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Weather'
+                                }
                             }
-                        }
+                        });
                     });
-                });
-			</script>
-			<canvas id="chart-dia" width="299" height="200" class="chartjs-render-monitor" style="display: block;
+				</script>
+				<canvas id="chart-dia" width="299" height="200" class="chartjs-render-monitor" style="display: block;
 			width: 299px; height: 200px;"></canvas>
+			</div>
+
 			<!-- Горизонтальный график -->
-			<script>
-                $(document).ready(function () {
-                    var ctx = $("#chart-line");
-                    var myLineChart = new Chart(ctx, {
-                        type: 'horizontalBar',
-                        data: {
-                            labels: [1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
-                            datasets: [{
-                                data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478],
-                                label: "Africa",
-                                borderColor: "#458af7",
-                                backgroundColor: '#458af7',
-                                fill: false
-                            }, {
-                                data: [168, 170, 178, 190, 203, 276, 408, 547, 675, 734],
-                                label: "Europe",
-                                borderColor: "#3cba9f",
-                                fill: false,
-                                backgroundColor: '#3cba9f'
-                            }]
-                        },
-                        options: {
-                            title: {
-                                display: true,
-                                text: 'World population per region (in millions)'
+			<div class="mt-5">
+				<script>
+                    $(document).ready(function () {
+                        var ctx = $("#chart-line");
+                        var stra = "{{ '_'.join(poverty['titles']) }}".split('_');
+                        var myLineChart = new Chart(ctx, {
+                            type: 'horizontalBar',
+                            data: {
+                                labels: stra,
+                                datasets: [{
+                                    data: {{ poverty['values'] }},
+                                    label: "Человек",
+                                    borderColor: "#458af7",
+                                    backgroundColor: '#458af7',
+                                    fill: false
+                                }]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Численность безработных граждан по МО УР на 01.01.2021г.'
+                                }
                             }
-                        }
+                        });
                     });
-                });
-			</script>
-			<canvas id="chart-line" width="299" height="200" class="chartjs-render-monitor" style="display: block;
+				</script>
+				<canvas id="chart-line" width="299" height="200" class="chartjs-render-monitor" style="display: block;
 			width: 299px; height: 200px;"></canvas>
+			</div>
+			<!-- Горизонтальный график -->
+			<div class="mt-5">
+				<script>
+                    $(document).ready(function () {
+                        var ctx = $("#chart-zarp_line");
+                        var stra = "{{ '_'.join(zarp['titles']) }}".split('_');
+                        var myLineChart = new Chart(ctx, {
+                            type: 'horizontalBar',
+                            data: {
+                                labels: stra,
+                                datasets: [
+                                    {
+                                        data: {{ zarp['reporting_month'] }},
+                                        label: "Отчетный месяц",
+                                        borderColor: "#458af7",
+                                        backgroundColor: '#458af7',
+                                        fill: false
+                                    },
+                                    {
+                                        data: {{ zarp['period_from_beginning_reporting_year'] }},
+                                        label: "Период с начала отчетного года",
+                                        borderColor: "#3cba9f",
+                                        backgroundColor: '#3cba9f',
+                                        fill: false
+                                    },
+	                                {
+                                        data: {{ zarp['last_moth'] }},
+                                        label: "Темпы роста (снижения), в % отчетного месяца к предыдущему месяцу",
+                                        borderColor: "#9771BA",
+                                        backgroundColor: '#9771BA',
+                                        fill: false
+                                    },
+	                                {
+                                        data: {{ zarp['last_year'] }},
+                                        label: "Темпы роста (снижения), в % отчетного месяца к соответствующему месяцу предыдущего года ",
+                                        borderColor: "#BA3D9B",
+                                        backgroundColor: '#BA3D9B',
+                                        fill: false
+                                    },
+	                                {
+                                        data: {{ zarp['beginning_reporting_period_previous_year'] }},
+                                        label: "Темпы роста (снижения), в % отчетного месяца к периода с начала " +
+	                                        "отчетного года к соответствующему периоду предыдущего года",
+                                        borderColor: "#BA6C52",
+                                        backgroundColor: '#BA6C52',
+                                        fill: false
+                                    }
+                                ]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Численность безработных граждан по МО УР на 01.01.2021г.'
+                                }
+                            }
+                        });
+                    });
+				</script>
+				<canvas id="chart-zarp_line" width="400" height="600" class="chartjs-render-monitor" style="display:
+				block; width: 400px; height: 600px;"></canvas>
+			</div>
 			<!--  -->
 
 			<!--  -->
