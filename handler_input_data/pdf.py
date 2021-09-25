@@ -31,27 +31,31 @@ class NotSmallBusiness:
         for i in range(len(self.title)):
             data.append(
                 {
-                    'Название': self.title[i],
-                    'Отчетный месяц': self.reporting_month[i],
-                    'Период с начала отчетного года': self.period_from_beginning_reporting_year[i],
-                    'Темпы роста (снижения), в % отчетного месяца к предыдущему месяцу':
-                        self.last_moth[i],
-                    'Темпы роста (снижения), в % отчетного месяца соответствующему месяцу предыдущего года':
-                        self.last_year[i],
-                    'Темпы роста (снижения), в % '
-                    'периода с начала отчетного года к соответствующему периоду предыдущего года':
-                        self.beginning_reporting_period_previous_year[i]
+                    'title': self.title[i].text.strip(),
+                    'reporting_month': self.reporting_month[i].text.strip(),
+                    'period_from_beginning_reporting_year': self.period_from_beginning_reporting_year[i].text.strip(),
+                    'last_moth': self.last_moth[i].text.strip(),
+                    'last_year': self.last_year[i].text.strip(),
+                    'beginning_reporting_period_previous_year':
+                        self.beginning_reporting_period_previous_year[i].text.strip()
                 }
             )
         return data
 
     def print(self):
         for i in range(len(self.title)):
-            print(self.title[i].text,
+            print('Название',
+                  self.title[i].text,
+                  'Отчетный месяц',
                   self.reporting_month[i].text,
+                  'Период с начала отчетного года',
                   self.period_from_beginning_reporting_year[i].text,
+                  'Темпы роста (снижения), в % отчетного месяца к предыдущему месяцу',
                   self.last_moth[i].text,
+                  'Темпы роста (снижения), в % отчетного месяца соответствующему месяцу предыдущего года',
                   self.last_year[i].text,
+                  'Темпы роста (снижения), в % '
+                  'периода с начала отчетного года к соответствующему периоду предыдущего года',
                   self.beginning_reporting_period_previous_year[i].text)
 
 
@@ -72,4 +76,4 @@ class ValueSubsistenceMinimum:
 
 
 if __name__ == '__main__':
-    ValueSubsistenceMinimum().print()
+    pass

@@ -1,1 +1,1 @@
-PATH_DATABASE = 'database/base.sqlite'
+PATH_DATABASE = '../database/base.sqlite'
