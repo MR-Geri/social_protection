@@ -1,36 +1,24 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
 {% block title %}
-	Вход
+	Авторизация
 {% endblock %}
-
 {% block body %}
-    <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <h1>Вход</h1>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <form action="" method="post" novalidate>
-                {{ form.hidden_tag() }}
-                <p>
-                    {{ form.username.label }}<br>
-                    {{ form.username(size=32) }}<br>
-                    {% for error in form.username.errors %}
-                        <span style="color: red;">[{{ error }}</span>
-                    {% endfor %}
-                </p>
-                <p>
-                    {{ form.password.label }}<br>
-                    {{ form.password(size=32) }}<br>
-                    {% for error in form.password.errors %}
-                        <span style="color: red;">[{{ error }}</span>
-                    {% endfor %}
-                </p>
-                <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-                <p>{{ form.submit() }}</p>
-            </form>
-        </div>
-    </div>
+	<div class="container text-center">
+		<h1>Авторизация</h1>
+		<form action="" method="post" class="form-signin text-center">
+			<input type="login" id="inputEmail" class="form-control mt-2" placeholder="Login" required=""
+			       autofocus="" name="login">
+			<input type="password" id="inputPassword" name="password" class="form-control mt-2" placeholder="Пароль"
+			       required="">
+			<div class="checkbox mb-3">
+				<label>
+					<input class="form-check-input mt-2" type="checkbox" name="check" checked> Запомнить
+				</label>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Войти</button>
+			<div>
+				<p>{{ message }}</p>
+			</div>
+		</form>
+	</div>
 {% endblock %}

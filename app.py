@@ -1,28 +1,17 @@
-from flask import Flask, render_template, redirect, url_for
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
-from wtforms.validators import DataRequired
+import account_user
+from flask import Flask, render_template, redirect, url_for, request
 
-class LoginForm(FlaskForm):
-    username = StringField('Имя пользователя', validators=[DataRequired()])
-    password = PasswordField('Пароль', validators=[DataRequired()])
-    remember_me = BooleanField('Запомнить меня')
-    submit = SubmitField('Вход')
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'social_protection_secret_key'
+account_user.login_manager.init_app(app)
+app.register_blueprint(account_user.blueprint)
 
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        return redirect(url_for('index'))
-    return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/about')
 def about():
