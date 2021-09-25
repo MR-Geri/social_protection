@@ -9,9 +9,14 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/pomosh')
-def pomosh():
-    return render_template('pomosh.html')
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+@app.route('/info')
+def info():
+    return render_template('info.html')
 
 
 if __name__ == '__main__':

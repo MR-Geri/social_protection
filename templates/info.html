@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Админская Информация
+{% endblock %}
+
+{% block body %}
+	<main class="container">
+		<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+			<!-- График -->
+			<div id="chart">
+				<script>
+                    $(document).ready(function () {
+                        $("#chart").shieldChart({
+                            theme: "light",
+                            primaryHeader: {
+                                text: "Динамика уровня бедности населения Удмуртской Республики в процентах"
+                            },
+                            exportOptions: {
+                                image: false,
+                                print: false
+                            },
+                            axisX: {
+                                categoricalValues: ['2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014',
+                                    '2015', '2016', '2017', '2018', '2019', '2020',]
+                            },
+                            tooltipSettings: {
+                                chartBound: true,
+                                axisMarkers: {
+                                    enabled: true,
+                                    mode: 'xy'
+                                }
+                            },
+                            dataSeries: [{
+                                seriesType: 'line',
+                                collectionAlias: "Данные в (%) от общей численности населения",
+                                data: [17.3, 16.1, 14.9, 13.7, 14.0, 11.1, 11.8, 11.9, 12.3, 12.4, 12.2, 12.2, 12.4,
+                                    11.9]
+                            }]
+                        });
+                    });
+				</script>
+			</div>
+			<!-- Диаграмма -->
+			<script>
+                $(document).ready(function () {
+                    var ctx = $("#chart-dia");
+                    var myLineChart = new Chart(ctx, {
+                        type: 'polarArea',
+                        data: {
+                            labels: ["Spring", "Summer", "Fall", "Winter"],
+                            datasets: [{
+                                data: [1200, 1700, 800, 200],
+                                backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)", "rgba(200, 50, 255, 0.5)", "rgba(0, 100, 255, 0.5)"]
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Weather'
+                            }
+                        }
+                    });
+                });
+			</script>
+			<canvas id="chart-dia" width="299" height="200" class="chartjs-render-monitor" style="display: block;
+			width: 299px; height: 200px;"></canvas>
+			<!-- Горизонтальный график -->
+			<script>
+                $(document).ready(function () {
+                    var ctx = $("#chart-line");
+                    var myLineChart = new Chart(ctx, {
+                        type: 'horizontalBar',
+                        data: {
+                            labels: [1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
+                            datasets: [{
+                                data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478],
+                                label: "Africa",
+                                borderColor: "#458af7",
+                                backgroundColor: '#458af7',
+                                fill: false
+                            }, {
+                                data: [168, 170, 178, 190, 203, 276, 408, 547, 675, 734],
+                                label: "Europe",
+                                borderColor: "#3cba9f",
+                                fill: false,
+                                backgroundColor: '#3cba9f'
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'World population per region (in millions)'
+                            }
+                        }
+                    });
+                });
+			</script>
+			<canvas id="chart-line" width="299" height="200" class="chartjs-render-monitor" style="display: block;
+			width: 299px; height: 200px;"></canvas>
+			<!--  -->
+
+			<!--  -->
+			<!--  -->
+			<!--  -->
+			<!--  -->
+			<!--  -->
+		</div>
+	</main>
+{% endblock %}
