@@ -49,5 +49,10 @@ def info():
         return redirect('/')
 
 
+@app.route('/questionnaire')
+def questionnaire():
+    return render_template('questionnaire.html')
+
+
 if __name__ == '__main__':
     app.run()
