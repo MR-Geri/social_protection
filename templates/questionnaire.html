@@ -5,9 +5,10 @@
 {% endblock %}
 {% block body %}
     <main class="container">
-    <div class="col-md-5">
+    <form action="" method="post">
+    <div class="col-md-5 px-4 my-5 text-center">
               <label for="country" class="form-label">Ваш семеный среднемесячный доход составляет:</label>
-              <select class="form-select" id="country" required="">
+              <select class="form-select" name="1" id="1" required="">
                 <option value=""> Выбери вариант ответа... </option>
                   <option> до 100тыс. руб.  </option>
                 <option> до 60тыс. руб. </option>
@@ -17,9 +18,9 @@
               <div class="invalid-feedback">
               </div>
             </div>
-        <div class="col-md-5">
+        <div class="col-md-5 px-4 my-5 text-center">
               <label for="country" class="form-label">Число людей в вашей семье?</label>
-              <select class="form-select" id="country" required="">
+              <select class="form-select" name="2" id="2" required="">
                 <option value=""> Выбери вариант ответа... </option>
                 <option> 4 </option>
                   <option> 3 </option>
@@ -29,9 +30,9 @@
               <div class="invalid-feedback">
               </div>
             </div>
-        <div class="col-md-5">
+        <div class="col-md-5 px-4 my-5 text-center">
               <label for="country" class="form-label">Присутствубт ли в вашей семье льготы?</label>
-              <select class="form-select" id="country" required="">
+              <select class="form-select" name="3" id="3" required="">
                 <option value=""> Выбери вариант ответа... </option>
                   <option> да </option>
                 <option> нет </option>
@@ -39,9 +40,9 @@
               <div class="invalid-feedback">
               </div>
             </div>
-        <div class="col-md-5">
+        <div class="col-md-5 px-4 my-5 text-center">
               <label for="country" class="form-label">К какому типу людей вы себя относите?</label>
-              <select class="form-select" id="country" required="">
+              <select class="form-select" name="4" id="4" required="">
                 <option value=""> Выбери вариант ответа... </option>
                   <option> Я нахожусь за гранью бедности </option>
                 <option> Мне хватает на жизнь </option>
@@ -50,6 +51,9 @@
               <div class="invalid-feedback">
               </div>
             </div>
-        <button class="w-100 btn btn-primary btn-lg" type="submit">Завершить опрос</button>
+        <div class="d-grid gap-1">
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Завершить опрос</button>
+        </div>
+    </form>
         </main>
 {% endblock %}

@@ -1,4 +1,5 @@
 import account_user
+import questionnaire
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import current_user
@@ -13,6 +14,7 @@ from account_user import login_manager
 
 login_manager.init_app(app)
 app.register_blueprint(account_user.blueprint)
+app.register_blueprint(questionnaire.blueprint)
 
 
 @app.route('/')
@@ -47,11 +49,6 @@ def info():
         return render_template('info.html', poverty=poverty, zarp=zarp)
     else:
         return redirect('/')
-
-
-@app.route('/questionnaire')
-def questionnaire():
-    return render_template('questionnaire.html')
 
 
 if __name__ == '__main__':
