@@ -1,9 +1,51 @@
 {% extends "base.html" %}
 
 {% block title %}
-Главная страница
+	Главная страница
 {% endblock %}
 
 {% block body %}
-<h1>Основаная страница сайта</h1>
+	<main class="container">
+		<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+			<h1 class="text-center">Кто входит в состав малоимущей семьи</h1>
+			<p class="lead">В состав малоимущей семьи при расчете среднедушевого дохода включаются лица, связанные родством и (или) свойством. К ним относятся совместно проживающие и ведущие совместное хозяйство супруги, их дети и родители, усыновители и усыновленные, братья и сестры, пасынки и падчерицы.</p>
+			<p>(ФЗ № 44 от 05.04.2003г.)</p>
+			<!-- График -->
+			<div id="chart">
+				<script>
+                    $(document).ready(function () {
+                        $("#chart").shieldChart({
+                            theme: "light",
+                            primaryHeader: {
+                                text: "Динамика уровня бедности населения Удмуртской Республики в процентах"
+                            },
+                            exportOptions: {
+                                image: false,
+                                print: false
+                            },
+                            axisX: {
+                                categoricalValues: ['2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014',
+	                                '2015', '2016', '2017', '2018', '2019', '2020',]
+                            },
+                            tooltipSettings: {
+                                chartBound: true,
+                                axisMarkers: {
+                                    enabled: true,
+                                    mode: 'xy'
+                                }
+                            },
+                            dataSeries: [{
+                                seriesType: 'line',
+                                collectionAlias: "Данные в (%) от общей численности населения",
+                                data: [17.3, 16.1, 14.9, 13.7, 14.0, 11.1, 11.8, 11.9, 12.3, 12.4, 12.2, 12.2, 12.4,
+	                            11.9]
+                            }]
+                        });
+                    });
+				</script><!-- /.График -->
+			</div>
+			<!--  -->
+
+		</div>
+	</main>
 {% endblock %}
