@@ -1,10 +1,15 @@
 import account_user
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, url_for, request
+from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'social_protection_secret_key'
-account_user.login_manager.init_app(app)
+app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/base.sqlite'
+db = SQLAlchemy(app)  # Важная для работы базы данных строка
+from account_user import login_manager
+
+login_manager.init_app(app)
 app.register_blueprint(account_user.blueprint)
 
 
