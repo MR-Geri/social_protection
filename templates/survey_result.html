@@ -8,7 +8,11 @@
 	<main class="container">
 		<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <h1 class="display-4">Результаты опроса</h1>
-            <p>{{ data }}</p>
+            {% for n in data %}
+                <ul class="list-group">
+                    <li class="list-group-item">{{ n }}</li>
+                </ul>
+            {% endfor %}
         </div>
     </main>
 {% endblock %}
