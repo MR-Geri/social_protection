@@ -42,31 +42,31 @@
 				</script>
 			</div>
 			<!-- Диаграмма -->
-			<div class="mt-5">
-				<script>
-                    $(document).ready(function () {
-                        var ctx = $("#chart-dia");
-                        var myLineChart = new Chart(ctx, {
-                            type: 'polarArea',
-                            data: {
-                                labels: ["Spring", "Summer", "Fall", "Winter"],
-                                datasets: [{
-                                    data: [1200, 1700, 800, 400],
-                                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)", "rgba(200, 50, 255, 0.5)", "rgba(0, 100, 255, 0.5)"]
-                                }]
-                            },
-                            options: {
-                                title: {
-                                    display: true,
-                                    text: 'Weather'
-                                }
-                            }
-                        });
-                    });
-				</script>
-				<canvas id="chart-dia" width="299" height="200" class="chartjs-render-monitor" style="display: block;
-			width: 299px; height: 200px;"></canvas>
-			</div>
+{#			<div class="mt-5">#}
+{#				<script>#}
+{#                    $(document).ready(function () {#}
+{#                        var ctx = $("#chart-dia");#}
+{#                        var myLineChart = new Chart(ctx, {#}
+{#                            type: 'polarArea',#}
+{#                            data: {#}
+{#                                labels: ["Spring", "Summer", "Fall", "Winter"],#}
+{#                                datasets: [{#}
+{#                                    data: [1200, 1700, 800, 400],#}
+{#                                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)", "rgba(200, 50, 255, 0.5)", "rgba(0, 100, 255, 0.5)"]#}
+{#                                }]#}
+{#                            },#}
+{#                            options: {#}
+{#                                title: {#}
+{#                                    display: true,#}
+{#                                    text: 'Weather'#}
+{#                                }#}
+{#                            }#}
+{#                        });#}
+{#                    });#}
+{#				</script>#}
+{#				<canvas id="chart-dia" width="299" height="200" class="chartjs-render-monitor" style="display: block;#}
+{#			width: 299px; height: 200px;"></canvas>#}
+{#			</div>#}
 
 			<!-- Горизонтальный график -->
 			<div class="mt-5">

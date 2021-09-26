@@ -1,6 +1,4 @@
 from flask import request, render_template, Blueprint, redirect
-from flask_login import LoginManager, login_user, login_required, logout_user
-from flask_sqlalchemy import SQLAlchemy
 
 blueprint = Blueprint(
     'questionnaire',
