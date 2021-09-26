@@ -19,10 +19,12 @@ def questionnaire():
         number_people = int(request.form.get('2'))
         income /= number_people
         if income < 10:
-            data.append("Ваш доход ниже прожиточного минимума, Вам пологается государственная помощь.")
+            data.append(("Ваш доход ниже прожиточного минимума, Вам пологается государственная помощь.",
+                            "http://www.kremlin.ru/acts/bank/14146"))
         select2 = request.form.get('3')
         if select2 == "да":
-            data.append("У Вас есть льготы")
+            data.append(("У Вас есть льготы",
+                            "https://bankiros.ru/news/kakie-lgoty-i-posobia-dostupny-grazdanam-rf-vne-zavisimosti-ot-ih-dohoda-v-2021-godu-6882"))
         select3 = request.form.get('4') #субъективная оценка своего состояния гражданином
         if len(data) == 0:
             data.append("У Вас нет льгот")

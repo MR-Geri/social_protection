@@ -10,7 +10,9 @@
             <h1 class="display-4">Результаты опроса</h1>
             {% for n in data %}
                 <ul class="list-group">
-                    <li class="list-group-item">{{ n }}</li>
+                    <li class="list-group-item">
+                        <a href="{{ n[1] }}" class="link-success">{{ n[0] }}</a>
+                    </li>
                 </ul>
             {% endfor %}
         </div>
